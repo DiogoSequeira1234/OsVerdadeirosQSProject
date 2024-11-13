@@ -34,4 +34,8 @@ public class Semestre {
     public void setSemestre(int semestre) {
         this.semestre = semestre;
     }
+
+    //MÉTODOS a fazer
+    //adicionarEpocas(epocas: List<Epoca>)
+
 }

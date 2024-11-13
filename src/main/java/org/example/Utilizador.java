@@ -19,4 +19,16 @@ public class Utilizador {
         return id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    //MÉtodos a fazer
+    // selecionarCurso(curso: Curso){
+    //preencherAvaliacoes(uc: UC, avaliacao: Avaliacao){
+
 }
