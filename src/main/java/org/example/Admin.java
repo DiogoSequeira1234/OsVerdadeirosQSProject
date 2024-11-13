@@ -1,22 +1,21 @@
 package org.example;
 
+import java.time.LocalDate;
+
 public class Admin {
     private int id;
     private String nome;
-    private String epocaExames;// o administrador deve definir epocas de exames
+    private String epocaExames;// o administrador deve definir epocas de exame
+    private Semestre semestre;
 
-    public  Admin(int id, String nome, String epocaExames) {
-        this.id = id;
-        this.nome = nome;
+    public  Admin() {
+        this.id = 1;
+        this.nome = "João";
         this.epocaExames = epocaExames;
     }
 
     public String getNome() {
         return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getEpocaExames() {
@@ -32,6 +31,15 @@ public class Admin {
     }
 
     //MÉTODOS a fazer
-    //private void pridefinirSemestre(inicio: Date, fim: Date){
+    private static void DefinirSemestre(Semestre semestre, LocalDate dataInicio, LocalDate dataFim){
+        // Verifica se a data de fim é posterior à data de início
+        if (dataFim.isAfter(dataInicio)) {
+            semestre.setDataInicial(dataInicio);
+            semestre.setDataFinal(dataFim);
+            System.out.println("Semestre definido com sucesso.");
+        } else {
+            System.out.println("Erro: A data de fim deve ser posterior à data de início.");
+        }
+    }
     //private void definirEpocaExames(semestre: Semestre, epocas: List<Epoca>){
 }

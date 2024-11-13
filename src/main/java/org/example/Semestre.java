@@ -1,29 +1,31 @@
 package org.example;
 
+import java.time.LocalDate;
+
 public class Semestre {
-    private String dataInicio;
-    private String dataTerminio;
+    private LocalDate dataInicio;
+    private LocalDate dataTerminio;
     private int semestre;
 
-    public Semestre(String dataInicial, String dataFinal, int semestre) {
+    public Semestre() {
         this.dataInicio = dataInicial;
         this.dataTerminio = dataFinal;
         this.semestre = 0;
     }
 
-    public String getDataFinal() {
+    public LocalDate getDataFinal() {
         return dataTerminio;
     }
 
-    public void setDataFinal(String dataFinal) {
+    public void setDataFinal(LocalDate dataFinal) {
         this.dataTerminio = dataFinal;
     }
 
-    public String getDataInicial() {
+    public LocalDate getDataInicial() {
         return dataInicio;
     }
 
-    public void setDataInicial(String dataInicial) {
+    public void setDataInicial(LocalDate dataInicial) {
         this.dataInicio = dataInicial;
     }
 
