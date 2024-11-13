@@ -3,10 +3,12 @@ package org.example;
 public class Semestre {
     private String dataInicio;
     private String dataTerminio;
+    private int semestre;
 
-    public Semestre(String dataInicial, String dataFinal) {
+    public Semestre(String dataInicial, String dataFinal, int semestre) {
         this.dataInicio = dataInicial;
         this.dataTerminio = dataFinal;
+        this.semestre = 0;
     }
 
     public String getDataFinal() {
@@ -23,5 +25,13 @@ public class Semestre {
 
     public void setDataInicial(String dataInicial) {
         this.dataInicio = dataInicial;
+    }
+
+    public int getSemestre() {
+        return semestre;
+    }
+
+    public void setSemestre(int semestre) {
+        this.semestre = semestre;
     }
 }
