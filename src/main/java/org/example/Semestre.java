@@ -1,43 +1,37 @@
 package org.example;
 
-import java.time.LocalDate;
-
 public class Semestre {
-    private LocalDate dataInicio;
-    private LocalDate dataTerminio;
-    private int semestre;
+    private String inicioSemestre1;
+    private String fimSemestre1;
+    private String inicioSemestre2;
+    private String fimSemestre2;
 
-    public Semestre() {
-        this.dataInicio = dataInicial;
-        this.dataTerminio = dataFinal;
-        this.semestre = 0;
+    // Métodos para definir o primeiro semestre
+    public void definirSemestre1(String inicio, String fim) {
+        this.inicioSemestre1 = inicio;
+        this.fimSemestre1 = fim;
     }
 
-    public LocalDate getDataFinal() {
-        return dataTerminio;
+    // Métodos para definir o segundo semestre
+    public void definirSemestre2(String inicio, String fim) {
+        this.inicioSemestre2 = inicio;
+        this.fimSemestre2 = fim;
     }
 
-    public void setDataFinal(LocalDate dataFinal) {
-        this.dataTerminio = dataFinal;
+    // Getters
+    public String getInicioSemestre1() {
+        return inicioSemestre1;
     }
 
-    public LocalDate getDataInicial() {
-        return dataInicio;
+    public String getFimSemestre1() {
+        return fimSemestre1;
     }
 
-    public void setDataInicial(LocalDate dataInicial) {
-        this.dataInicio = dataInicial;
+    public String getInicioSemestre2() {
+        return inicioSemestre2;
     }
 
-    public int getSemestre() {
-        return semestre;
+    public String getFimSemestre2() {
+        return fimSemestre2;
     }
-
-    public void setSemestre(int semestre) {
-        this.semestre = semestre;
-    }
-
-    //MÉTODOS a fazer
-    //adicionarEpocas(epocas: List<Epoca>)
-
 }

@@ -1,17 +1,85 @@
 package org.example;
+import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
+        Admin admin = new Admin("João", "joao@email.com", "senha123");
+        Semestre semestre = new Semestre();
+        EpocaExames epocasDeExames = new EpocaExames();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        int opcao;
+        do {
+            System.out.println("\nMenu Administrador:");
+            System.out.println("1. Definir datas do 1º semestre");
+            System.out.println("2. Definir datas do 2º semestre");
+            System.out.println("3. Adicionar época de exames");
+            System.out.println("4. Ver épocas de exames");
+            System.out.println("5. Ver semestres definidos");
+            System.out.println("0. Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextInt();
+            scanner.nextLine(); // Limpar o buffer
+
+            switch (opcao) {
+                case 1 -> {
+                    System.out.print("Data de início do 1º semestre (YYYY-MM-DD): ");
+                    String inicio = scanner.nextLine();
+                    System.out.print("Data de fim do 1º semestre (YYYY-MM-DD): ");
+                    String fim = scanner.nextLine();
+                    semestre.definirSemestre1(inicio, fim);
+                    System.out.println("1º Semestre definido!");
+                }
+                case 2 -> {
+                    System.out.print("Data de início do 2º semestre (YYYY-MM-DD): ");
+                    String inicio = scanner.nextLine();
+                    System.out.print("Data de fim do 2º semestre (YYYY-MM-DD): ");
+                    String fim = scanner.nextLine();
+                    semestre.definirSemestre2(inicio, fim);
+                    System.out.println("2º Semestre definido!");
+                }
+                case 3 -> {
+                    System.out.println("Escolha o tipo de época:");
+                    for (int i = 0; i < EpocaExames.TIPOS_DE_EPOCAS.length; i++) {
+                        System.out.println((i + 1) + ". " + EpocaExames.TIPOS_DE_EPOCAS[i]);
+                    }
+                    int tipo = scanner.nextInt() - 1;
+                    scanner.nextLine(); // Limpar o buffer
+
+                    System.out.print("Data de início da época (YYYY-MM-DD): ");
+                    String inicio = scanner.nextLine();
+                    System.out.print("Data de fim da época (YYYY-MM-DD): ");
+                    String fim = scanner.nextLine();
+
+                    Integer semestreEscolhido = null;
+                    if (tipo != 2) { // "Época Especial" não está vinculada a semestre
+                        System.out.print("Semestre (1 ou 2): ");
+                        semestreEscolhido = scanner.nextInt();
+                        scanner.nextLine(); // Limpar o buffer
+                    }
+
+                    epocasDeExames.adicionarEpoca(tipo, inicio, fim, semestreEscolhido);
+                    System.out.println("Época de exames adicionada!");
+                }
+                case 4 -> {
+                    System.out.println("Épocas de exames:");
+                    for (EpocaExames.Epoca epoca : epocasDeExames.getEpocas()) {
+                        System.out.println(epoca);
+                    }
+                }
+                case 5 -> {
+                    System.out.println("Semestres definidos:");
+                    System.out.println("1º Semestre: " +
+                            (semestre.getInicioSemestre1() == null ? "Não definido" : semestre.getInicioSemestre1() + " a " + semestre.getFimSemestre1()));
+                    System.out.println("2º Semestre: " +
+                            (semestre.getInicioSemestre2() == null ? "Não definido" : semestre.getInicioSemestre2() + " a " + semestre.getFimSemestre2()));
+                }
+                case 0 -> System.out.println("Saindo...");
+                default -> System.out.println("Opção inválida.");
+            }
+        } while (opcao != 0);
+
+        scanner.close();
     }
 }
+

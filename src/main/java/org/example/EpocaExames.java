@@ -1,40 +1,67 @@
 package org.example;
 
-public class EpocaExames        {
-    private String tipo;
-    private String dataInicio;
-    private String dataTerminio;
+import java.util.ArrayList;
+import java.util.List;
 
-    public EpocaExames(String tipo, String dataInicio, String dataTerminio) {
-        this.tipo = tipo;
-        this.dataInicio = dataInicio;
-        this.dataTerminio = dataTerminio;
+public class EpocaExames {
+    // Lista de épocas criadas
+    private List<Epoca> epocas;
+
+    // Tipos de épocas predefinidos
+    public static final String[] TIPOS_DE_EPOCAS = {"Normal", "Recurso", "Especial"};
+
+    // Construtor
+    public EpocaExames() {
+        this.epocas = new ArrayList<>();
     }
 
-    public String getTipo() {
-        return tipo;
+    // Metodo para adicionar uma época (escolhida pelo tipo e semestre)
+    public void adicionarEpoca(int tipo, String dataInicio, String dataFim, Integer semestre) {
+        if (tipo < 0 || tipo >= TIPOS_DE_EPOCAS.length) {
+            throw new IllegalArgumentException("Tipo de época inválido.");
+        }
+        String nome = TIPOS_DE_EPOCAS[tipo];
+        epocas.add(new Epoca(nome, dataInicio, dataFim, semestre));
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    // Getter para as épocas criadas
+    public List<Epoca> getEpocas() {
+        return epocas;
     }
 
-    public String getDataInicio() {
-        return dataInicio;
-    }
+    // Classe interna para representar uma época
+    public static class Epoca {
+        private String nome;
+        private String dataInicio;
+        private String dataFim;
+        private Integer semestre; // Pode ser nulo se não estiver vinculado a um semestre
 
-    public void setDataInicio(String dataInicio) {
-        this.dataInicio = dataInicio;
-    }
+        public Epoca(String nome, String dataInicio, String dataFim, Integer semestre) {
+            this.nome = nome;
+            this.dataInicio = dataInicio;
+            this.dataFim = dataFim;
+            this.semestre = semestre;
+        }
 
-    public String getDataTerminio() {
-        return dataTerminio;
-    }
+        public String getNome() {
+            return nome;
+        }
 
-    public void setDataTerminio(String dataTerminio) {
-        this.dataTerminio = dataTerminio;
-    }
+        public String getDataInicio() {
+            return dataInicio;
+        }
 
-    //Métodos a fazer
-    //incluirAvaliacao(avaliacao: Avaliacao)
+        public String getDataFim() {
+            return dataFim;
+        }
+
+        public Integer getSemestre() {
+            return semestre;
+        }
+
+        @Override
+        public String toString() {
+            return nome + " (" + (semestre == null ? "Fora de Semestre" : "Semestre " + semestre) + "): " + dataInicio + " a " + dataFim;
+        }
+    }
 }

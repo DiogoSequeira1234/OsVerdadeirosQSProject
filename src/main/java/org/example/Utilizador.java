@@ -1,22 +1,14 @@
 package org.example;
 
-import java.time.LocalDateTime;
-
-public class Utilizador {
-
-    private int id;
+public abstract class Utilizador {
     private String nome;
-    // Construtor que inicializa todas as variáveis
-    public Utilizador(int id, String curso, String avaliacoes, LocalDateTime dataLimite, String nome) {
-        this.id = id;
-        this.nome = nome;
-    }
+    private String email;
+    private String senha;
 
-        //Acho que estas variaves deviam ficar em outras classes (curso, avaliações , data limite) e talvez criar uma variavel nome
-    
-    // Getters e Setters
-    public int getId() {
-        return id;
+    public Utilizador(String nome, String email, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
     }
 
     public String getNome() {
@@ -27,8 +19,19 @@ public class Utilizador {
         this.nome = nome;
     }
 
-    //MÉtodos a fazer
-    // selecionarCurso(curso: Curso){
-    //preencherAvaliacoes(uc: UC, avaliacao: Avaliacao){
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }
