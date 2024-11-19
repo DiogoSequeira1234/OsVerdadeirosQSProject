@@ -23,17 +23,17 @@ public class Main {
 
             switch (opcao) {
                 case 1 -> {
-                    System.out.print("Data de início do 1º semestre (YYYY-MM-DD): ");
+                    System.out.print("Data de início do 1º semestre (DD-MM-AAAA): ");
                     String inicio = scanner.nextLine();
-                    System.out.print("Data de fim do 1º semestre (YYYY-MM-DD): ");
+                    System.out.print("Data de fim do 1º semestre (DD-MM-AAAA): ");
                     String fim = scanner.nextLine();
                     semestre.definirSemestre1(inicio, fim);
                     System.out.println("1º Semestre definido!");
                 }
                 case 2 -> {
-                    System.out.print("Data de início do 2º semestre (YYYY-MM-DD): ");
+                    System.out.print("Data de início do 2º semestre (DD-MM-AAAA): ");
                     String inicio = scanner.nextLine();
-                    System.out.print("Data de fim do 2º semestre (YYYY-MM-DD): ");
+                    System.out.print("Data de fim do 2º semestre (DD-MM-AAAA): ");
                     String fim = scanner.nextLine();
                     semestre.definirSemestre2(inicio, fim);
                     System.out.println("2º Semestre definido!");
@@ -46,9 +46,9 @@ public class Main {
                     int tipo = scanner.nextInt() - 1;
                     scanner.nextLine(); // Limpar o buffer
 
-                    System.out.print("Data de início da época (YYYY-MM-DD): ");
+                    System.out.print("Data de início da época (DD-MM-AAAA): ");
                     String inicio = scanner.nextLine();
-                    System.out.print("Data de fim da época (YYYY-MM-DD): ");
+                    System.out.print("Data de fim da época (DD-MM-AAAA): ");
                     String fim = scanner.nextLine();
 
                     Integer semestreEscolhido = null;
