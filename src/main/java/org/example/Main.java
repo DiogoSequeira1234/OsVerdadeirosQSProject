@@ -41,6 +41,7 @@ public class Main {
             opcao = scanner.nextInt();
             scanner.nextLine(); // Limpar o buffer
 
+<<<<<<< HEAD
             try {
                 switch (opcao) {
                     case 1 -> {
@@ -65,6 +66,42 @@ public class Main {
                             System.out.println((i + 1) + ". " + EpocaExames.TIPOS_DE_EPOCAS[i]);
                         }
                         int tipo = scanner.nextInt() - 1;
+=======
+            switch (opcao) {
+                case 1 -> {
+                    System.out.print("Data de início do 1º semestre (DD-MM-AAAA): ");
+                    String inicio = scanner.nextLine();
+                    System.out.print("Data de fim do 1º semestre (DD-MM-AAAA): ");
+                    String fim = scanner.nextLine();
+                    semestre.definirSemestre1(inicio, fim);
+                    System.out.println("1º Semestre definido!");
+                }
+                case 2 -> {
+                    System.out.print("Data de início do 2º semestre (DD-MM-AAAA): ");
+                    String inicio = scanner.nextLine();
+                    System.out.print("Data de fim do 2º semestre (DD-MM-AAAA): ");
+                    String fim = scanner.nextLine();
+                    semestre.definirSemestre2(inicio, fim);
+                    System.out.println("2º Semestre definido!");
+                }
+                case 3 -> {
+                    System.out.println("Escolha o tipo de época:");
+                    for (int i = 0; i < EpocaExames.TIPOS_DE_EPOCAS.length; i++) {
+                        System.out.println((i + 1) + ". " + EpocaExames.TIPOS_DE_EPOCAS[i]);
+                    }
+                    int tipo = scanner.nextInt() - 1;
+                    scanner.nextLine(); // Limpar o buffer
+
+                    System.out.print("Data de início da época (DD-MM-AAAA): ");
+                    String inicio = scanner.nextLine();
+                    System.out.print("Data de fim da época (DD-MM-AAAA): ");
+                    String fim = scanner.nextLine();
+
+                    Integer semestreEscolhido = null;
+                    if (tipo != 2) { // "Época Especial" não está vinculada a semestre
+                        System.out.print("Semestre (1 ou 2): ");
+                        semestreEscolhido = scanner.nextInt();
+>>>>>>> 5a0482cfc15184922e608c613760a07f29792382
                         scanner.nextLine(); // Limpar o buffer
 
                         System.out.print("Data de início da época (YYYY-MM-DD): ");
