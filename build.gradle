@@ -1,6 +1,6 @@
 plugins {
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.1.0'
+    id 'org.openjfx.javafxplugin' version '0.0.14'
     id 'org.beryx.jlink' version '2.26.0'
 }
 
@@ -9,13 +9,13 @@ repositories {
 }
 
 javafx {
-    version = "21"
-    modules = [ 'javafx.controls', 'javafx.fxml' ]
+    version = "21" // Se estiver usando o JavaFX 21, isso está correto
+    modules = ['javafx.controls', 'javafx.fxml']
 }
 
 application {
     mainClass = "org.example.HelloApplication"
-    mainModule = "hellofx"
+    mainModule = "hellofx" // Certifique-se de ter o módulo "hellofx" configurado
 }
 
 jlink {
